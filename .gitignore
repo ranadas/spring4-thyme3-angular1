@@ -18,5 +18,5 @@ build
 ###################
 **/test/coverage
 report
-
+.gradle/
 Thumbs.db
