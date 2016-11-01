@@ -1,0 +1,22 @@
+.*~
+.*.swp
+tmp/
+*.iml
+.idea/
+target/
+build/
+angular-1.5.8/
+
+# Ignore Node & Bower
+###################
+node_modules
+bower_components
+build
+#.tmp
+
+# Ignore Test reporters
+###################
+**/test/coverage
+report
+
+Thumbs.db

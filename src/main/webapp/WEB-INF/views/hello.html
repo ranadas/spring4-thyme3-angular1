@@ -1,0 +1,46 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="RANA DAS"/>
+
+    <title th:text="#{index.title}">This is hardcoded Title</title>
+
+    <link th:href="@{/resources/static/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <h2 th:text="'Hello ' + ${name} + '!'"></h2>
+</div>
+
+<div class="authorslist" th:unless="${#lists.isEmpty(authors)}">
+    <table class="table table-inverse">
+        <thead>
+        <tr>
+            <th th:text="#{author.fullname}">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="author: ${authors}">
+            <td th:text="${author}" />
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<!--<tr th:each="author : ${authors}">-->
+    <!--<td th:text="${message.id}">1</td>-->
+    <!--<td><a href="#" th:text="${message.title}">Title ...</a></td>-->
+    <!--<td th:text="${author}">Text ...</td>-->
+<!--</tr>-->
+<!-- /container -->
+
+<script th:src="@{/resources/static/js/jquery-3.1.1.min.js}"></script>
+<script th:src="@{/resources/static/js/bootstrap.min.js}"></script>
+</body>
+</html>

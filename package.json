@@ -1,0 +1,37 @@
+{
+  "name": "spring-thymeleaf",
+  "version": "1.0.0",
+  "description": "Spting 4, thymeleaf  web application",
+  "main": "index.js",
+  "scripts": {
+    "init": "npm install",
+    "install": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranadas/spring4-thymeleaf.git"
+  },
+  "keywords": [
+    "spring4",
+    "node",
+    "thymeleaf"
+  ],
+  "author": "Rana Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ranadas/spring4-thymeleaf/issues"
+  },
+  "homepage": "https://github.com/ranadas/spring4-thymeleaf#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-if": "^2.0.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-load-plugins": "^1.3.0",
+    "gulp-print": "^2.0.1",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "yargs": "^6.3.0"
+  }
+}

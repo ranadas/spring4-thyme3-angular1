@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="RANA DAS"/>
+
+
+    <title th:text="#{error.title}">This is hardcoded Title</title>
+
+    <link th:href="@{/resources/static/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/static/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container" th:fragment="content">
+    ${errorMessage}
+</div>
+
+<div th:if="!${errCode}">
+    <h1>${errCode} : System Errors1</h1>
+</div>
+
+
+<div th:if="${errCode}">
+    <h1>${errCode} : System Errors2</h1>
+</div>
+
+
+<div th:if="${errMsg}">
+    <h1>${errCode} : System Errors3</h1>
+</div>
+
+</body>
+</html>
