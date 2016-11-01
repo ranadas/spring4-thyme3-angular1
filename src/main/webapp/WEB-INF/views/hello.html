@@ -18,27 +18,6 @@
     <h2 th:text="'Hello ' + ${name} + '!'"></h2>
 </div>
 
-<div class="authorslist" th:unless="${#lists.isEmpty(authors)}">
-    <table class="table table-inverse">
-        <thead>
-        <tr>
-            <th th:text="#{author.fullname}">Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="author: ${authors}">
-            <td th:text="${author}" />
-        </tr>
-        </tbody>
-    </table>
-
-</div>
-<!--<tr th:each="author : ${authors}">-->
-    <!--<td th:text="${message.id}">1</td>-->
-    <!--<td><a href="#" th:text="${message.title}">Title ...</a></td>-->
-    <!--<td th:text="${author}">Text ...</td>-->
-<!--</tr>-->
-<!-- /container -->
 
 <script th:src="@{/resources/static/js/jquery-3.1.1.min.js}"></script>
 <script th:src="@{/resources/static/js/bootstrap.min.js}"></script>
