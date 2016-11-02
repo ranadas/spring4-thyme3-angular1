@@ -22,7 +22,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan({"com.rdas.controller", "com.rdas.profiled", "com.rdas.service"})
+@ComponentScan({"com.rdas.controller", "com.rdas.profiled"})
 public class WebConfig extends WebMvcConfigurerAdapter{
     @Autowired
     private ApplicationContext applicationContext;
@@ -64,15 +64,6 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
-
-    //    @Bean
-//    public ViewResolver getViewResolver(){
-//        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-//        resolver.setPrefix("/WEB-INF/jsp/");
-//        resolver.setSuffix(".jsp");
-//        return resolver;
-//    }
-
 
     @Bean(name ="messageSource")
     public MessageSource getMessageSource() {
