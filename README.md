@@ -20,3 +20,6 @@ A Thymeleaf 3 and Spring 4 mvc application. (Only Java Configs) :
     for future, just use npm install.
     and then h=gulp task as "gulp vet"
 **
+
+
+bower install

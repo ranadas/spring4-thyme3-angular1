@@ -1,0 +1,8 @@
+{
+  "registry": "https://bower.herokuapp.com/packages/angular",
+  "proxy": "http://internet.hrblock.net:8080",
+  "https-proxy": "http://internet.hrblock.net:8080",
+  "strict-ssl": false,
+  "directory":"src/main/webapp/resources/static/bower",
+  "json":"bower.json"
+}
