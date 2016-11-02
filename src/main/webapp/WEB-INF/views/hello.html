@@ -9,16 +9,20 @@
     <meta name="description" content=""/>
     <meta name="author" content="RANA DAS"/>
 
-    <title th:text="#{index.title}">This is hardcoded Title</title>
+    <title th:text="#{index.title}">default title </title>
 
     <link th:href="@{/resources/static/bower/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
-<body>
-<div class="container">
-    <h2 th:text="'Hello ' + ${name} + '!'"></h2>
+<body ng-app="angular-skel">
+<div class="container" ng-controller="DemoController">
+    {{firstName }}
 </div>
 
 <script th:src="@{/resources/static/bower/jquery/dist/jquery.min.js}"></script>
 <script th:src="@{/resources/static/bower/bootstrap/dist/js/bootstrap.min.js}"></script>
+<script th:src="@{/resources/static/bower/angular/angular.min.js}"></script>
+<script th:src="@{/resources/static/bower/angular-route/angular-route.min.js}"></script>
+<script th:src="@{/resources/static/js/angular-app.js}"></script>
+
 </body>
 </html>

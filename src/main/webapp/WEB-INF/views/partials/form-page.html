@@ -1,0 +1,25 @@
+<div class="container" ng-controller="FormDemoController">
+    <form name="demoForm" novalidate>
+        Name:
+        <input type="text" ng-model="user.name"/>
+
+        <br/> E-mail:
+        <input type="email" ng-model="user.email"/>
+
+        <br/> Gender:
+        <input type="radio" ng-model="user.gender" value="male"/>male
+        <input type="radio" ng-model="user.gender" value="female"/>female
+
+        <br/> I agree:
+        <input type="checkbox" ng-model="user.agree" name="userAgree" required=""/>
+
+        <br/> Country using ngRepeat
+        <select name="country3" ng-model="user.country">
+            <option ng-repeat="country3 in countries">{{ country3 }}</option>
+        </select>
+
+        <br/>
+        <input type="button" ng-click="reset()" value="Reset"/>
+        <input type="submit" ng-click="update(user)" value="Submit"/>
+    </form>
+</div>

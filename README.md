@@ -23,3 +23,4 @@ A Thymeleaf 3 and Spring 4 mvc application. (Only Java Configs) :
 
 
 bower install
+npm install

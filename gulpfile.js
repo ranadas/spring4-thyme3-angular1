@@ -17,7 +17,8 @@ gulp.task('vet', function () {
     return gulp
         .src(['./src/**/*.js',
             './*.js',
-            '!./src/**/*.min.js'])
+            '!./src/**/*.min.js',
+            '!./src/**/bower/**'])
         .pipe($$.if(args.verbose, $$.print()))
         .pipe($$.jscs())
         .pipe($$.jshint())
