@@ -24,3 +24,7 @@ A Thymeleaf 3 and Spring 4 mvc application. (Only Java Configs) :
 
 bower install
 npm install
+
+http://websystique.com/springmvc/spring-4-mvc-angularjs-routing-example-using-ngroute/
+https://robertleggett.wordpress.com/2013/12/20/angular-js-and-bootstrap-with-spring-and-spring-security-and-hibernate/
+https://github.com/Robert-Leggett/angular_bootstrap_spring

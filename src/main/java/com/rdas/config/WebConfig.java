@@ -1,40 +1,43 @@
 package com.rdas.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.web.servlet.ViewResolver;
+import org.springframework.context.annotation.Import;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.spring4.SpringTemplateEngine;
-import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
-import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ITemplateResolver;
 
-@EnableWebMvc
+import java.util.List;
+
 @Configuration
-@ComponentScan({"com.rdas.controller", "com.rdas.profiled"})
+@EnableWebMvc
+@ComponentScan({"com.rdas.profiled", "com.rdas.controller"})
+@Import({ThymeleafConfig.class})
 public class WebConfig extends WebMvcConfigurerAdapter{
-    @Autowired
-    private ApplicationContext applicationContext;
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/static/js/**").addResourceLocations("/resources/static/js/");
-        registry.addResourceHandler("/resources/static/css/**").addResourceLocations("/resources/static/css/");
-        registry.addResourceHandler("/resources/static/views/**").addResourceLocations("/resources/static/views/");
-        registry.addResourceHandler("/resources/static/**").addResourceLocations("/resources/static/");
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+//        registry.addResourceHandler("/resources/static/js/**").addResourceLocations("/resources/static/js/");
+//        registry.addResourceHandler("/resources/static/css/**").addResourceLocations("/resources/static/css/");
+//        registry.addResourceHandler("/resources/static/views/**").addResourceLocations("/resources/static/views/");
+//        registry.addResourceHandler("/resources/static/**").addResourceLocations("/resources/static/");
     }
 
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(new MappingJackson2HttpMessageConverter());
+        super.configureMessageConverters(converters);
+    }
+    /*
     @Bean
     public ViewResolver viewResolver() {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
@@ -60,10 +63,6 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         return resolver;
     }
 
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
-    }
 
     @Bean(name ="messageSource")
     public MessageSource getMessageSource() {
@@ -72,4 +71,5 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
+    */
 }
