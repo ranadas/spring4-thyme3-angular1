@@ -28,3 +28,7 @@ npm install
 http://websystique.com/springmvc/spring-4-mvc-angularjs-routing-example-using-ngroute/
 https://robertleggett.wordpress.com/2013/12/20/angular-js-and-bootstrap-with-spring-and-spring-security-and-hibernate/
 https://github.com/Robert-Leggett/angular_bootstrap_spring
+
+https://github.com/xvitcoder/spring-mvc-angularjs
+
+https://anirudhbhatnagar.com/2016/05/27/build-a-new-web-application-from-scratch-using-spring-boot-thymeleaf-angularjs-part-3/

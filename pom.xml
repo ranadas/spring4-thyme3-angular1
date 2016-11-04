@@ -21,10 +21,6 @@
     </dependencyManagement>
     <dependencies>
         <!--Spring-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-context</artifactId>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -89,11 +85,6 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.8.4</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>javax.servlet</groupId>-->
-            <!--<artifactId>jstl</artifactId>-->
-            <!--<version>1.2</version>-->
-        <!--</dependency>-->
 
         <!--databases-->
         <dependency>
@@ -183,6 +174,7 @@
                 <version>2.2</version>
                 <configuration>
                     <path>/</path>
+                    <port>8000</port>
                 </configuration>
             </plugin>
 
