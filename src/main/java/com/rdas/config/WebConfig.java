@@ -26,10 +26,6 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-//        registry.addResourceHandler("/resources/static/js/**").addResourceLocations("/resources/static/js/");
-//        registry.addResourceHandler("/resources/static/css/**").addResourceLocations("/resources/static/css/");
-//        registry.addResourceHandler("/resources/static/views/**").addResourceLocations("/resources/static/views/");
-//        registry.addResourceHandler("/resources/static/**").addResourceLocations("/resources/static/");
     }
 
     @Override
@@ -37,39 +33,4 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         converters.add(new MappingJackson2HttpMessageConverter());
         super.configureMessageConverters(converters);
     }
-    /*
-    @Bean
-    public ViewResolver viewResolver() {
-        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setTemplateEngine(templateEngine());
-        resolver.setCharacterEncoding("UTF-8");
-        return resolver;
-    }
-
-    @Bean
-    public TemplateEngine templateEngine() {
-        SpringTemplateEngine engine = new SpringTemplateEngine();
-        engine.setEnableSpringELCompiler(true);
-        engine.setTemplateResolver(templateResolver());
-        return engine;
-    }
-
-    private ITemplateResolver templateResolver() {
-        SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-        resolver.setApplicationContext(applicationContext);
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".html");
-        resolver.setTemplateMode(TemplateMode.HTML);
-        return resolver;
-    }
-
-
-    @Bean(name ="messageSource")
-    public MessageSource getMessageSource() {
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("/resources/messages");
-        messageSource.setDefaultEncoding("UTF-8");
-        return messageSource;
-    }
-    */
 }
