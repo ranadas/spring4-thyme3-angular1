@@ -5,7 +5,7 @@
 var skelApp = angular.module("angular-skel", ['ngRoute']);
 
 // Configure routing
-skelApp.config(function ($routeProvider) {
+skelApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
         templateUrl: 'partials/welcome',
         controller: 'WelcomeController'
@@ -27,6 +27,9 @@ skelApp.config(function ($routeProvider) {
         controller: 'ErrorController'
     });
 
+
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
 });
 
 skelApp.controller('WelcomeController', ['$scope', '$location', function ($scope, $location) {
