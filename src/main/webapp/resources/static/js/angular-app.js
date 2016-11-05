@@ -2,28 +2,26 @@
  * Created by x148128 on 02/11/2016.
  */
 'use strict';
-
 var skelApp = angular.module("angular-skel", ['ngRoute']);
 
 // Configure routing
 skelApp.config(function ($routeProvider) {
-    $routeProvider.
-    when('/', {
+    $routeProvider.when('/', {
         templateUrl: 'partials/welcome',
         controller: 'WelcomeController'
-    }).
-    when('/form', {
-        templateUrl: 'partials/form-page',
-        controller: 'FormDemoController'
-    }).
-    when('/success', {
-        templateUrl: 'partials/success',
-        controller: 'SuccessController'
-    }).
-    otherwise({
-        redirectTo: '/'
     });
 
+    $routeProvider.when('/form', {
+        templateUrl: 'partials/form-page',
+        controller: 'FormDemoController'
+    });
+
+    $routeProvider.when('/success', {
+        templateUrl: 'partials/success',
+        controller: 'SuccessController'
+    }).otherwise({
+        redirectTo: '/'
+    });
     $routeProvider.when('/error', {
         templateUrl: 'partials/error',
         controller: 'ErrorController'
@@ -31,9 +29,21 @@ skelApp.config(function ($routeProvider) {
 
 });
 
-skelApp.controller('WelcomeController', function ($scope) {
+skelApp.controller('WelcomeController', ['$scope', '$location', function ($scope, $location) {
     console.log('WelcomeController');
-});
+    $scope.Message = "click something.";
+
+    $scope.go = function (path) {
+        console.log('WelcomeController:g0' + path);
+        $location.url(path);
+    };
+    //$scope.protocol = $location.protocol();
+
+    //$scope.setpath = function (path) {
+    //    $location.path(path);
+    //}
+}]);
+
 
 skelApp.controller("FormDemoController", ['$scope', function ($scope) {
 
@@ -41,7 +51,7 @@ skelApp.controller("FormDemoController", ['$scope', function ($scope) {
     $scope.master = {};
 
     $scope.update = function (user) {
-        console.log('update'+user);
+        console.log('update' + user);
         $scope.master = angular.copy(user);
     };
 

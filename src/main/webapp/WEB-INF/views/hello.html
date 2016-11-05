@@ -12,13 +12,32 @@
     <title th:text="#{index.title}">default title </title>
 
     <link th:href="@{/resources/static/bower/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
 </head>
 <body ng-app="angular-skel">
 <div class="container" ng-controller="DemoController">
-    {{firstName }}
+
+    <!-- HEADER AND NAVBAR -->
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">{{firstName}} </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
 </div>
 
-<div ng-view=""></div>
+<!-- MAIN CONTENT AND INJECTED VIEWS -->
+<div id="main">
+    <!-- angular templating -->
+    <!-- this is where content will be injected -->
+    <div ng-view></div>
+
+</div>
 
 <script th:src="@{/resources/static/bower/jquery/dist/jquery.min.js}"></script>
 <script th:src="@{/resources/static/bower/bootstrap/dist/js/bootstrap.min.js}"></script>
