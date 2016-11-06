@@ -2,7 +2,7 @@
  * Created by x148128 on 02/11/2016.
  */
 'use strict';
-var skelApp = angular.module("angular-skel", ['ngRoute', 'ngSanitize']);
+var skelApp = angular.module("angular-skel", ['ngRoute', 'ngSanitize', 'ngResource']);
 
 // Configure routing
 skelApp.config(function ($routeProvider, $locationProvider) {
@@ -32,6 +32,18 @@ skelApp.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
+
+//// SERVICES
+//http://www.java-allandsundry.com/2014/05/spring-rest-controller-with-angularjs.html
+skelApp.factory("UserService", function ($resource) {
+    return $resource("/saveuser", {id: "@id"}, {
+        update: {
+            method: 'PUT'
+        }
+    });
+});
+
+////
 skelApp.controller('WelcomeController', ['$scope', '$location', function ($scope, $location) {
     console.log('WelcomeController');
     $scope.Message = "click something.";
@@ -40,28 +52,63 @@ skelApp.controller('WelcomeController', ['$scope', '$location', function ($scope
         console.log('WelcomeController:g0' + path);
         $location.url(path);
     };
-    //$scope.protocol = $location.protocol();
-
-    //$scope.setpath = function (path) {
-    //    $location.path(path);
-    //}
 }]);
 
 
-skelApp.controller("FormDemoController", ['$scope', function ($scope) {
+skelApp.controller("FormDemoController", ['$scope', '$location', '$resource', 'UserService', function ($scope, $location, $resource, UserService) {
 
-    $scope.countries = ['Ireland', 'France', 'UK'];
+    $scope.countries = ['Ireland', 'France', 'UK', 'India'];
     $scope.master = {};
 
     $scope.update = function (user) {
         console.log('update' + user);
         $scope.master = angular.copy(user);
+
+        var resp = UserService.save({}, {
+                name: user.name,
+                email: user.email,
+                gender: user.gender,
+                agree: user.agree,
+                country: user.country
+            },
+            function (response) {
+                console.log(response);
+                $location.url('/success');
+            },
+            function (failedResponse) {
+                console.log(failedResponse);
+                $location.url('/error');
+            });
+
+        console.log(resp);
+
+        //var userRes = $resource('/saveuser');
+        //userRes.save({
+        //        name: user.name,
+        //        email: user.email,
+        //        gender: user.gender,
+        //        agree: user.agree,
+        //        country: user.country
+        //    },
+        //    function (response) {
+        //        console.log(response);
+        //        $scope.message = response.message;
+        //    },
+        //    function(failedResponse){
+        //        console.log(failedResponse);
+        //    });
     };
 
     $scope.reset = function () {
         console.log('reset');
         $scope.user = {};
     };
+
+    $scope.go = function (path) {
+        console.log('FormDemoController:g0' + path);
+        $location.url(path);
+    };
+
     $scope.reset();
 }]);
 
