@@ -2,7 +2,7 @@
  * Created by x148128 on 02/11/2016.
  */
 'use strict';
-var skelApp = angular.module("angular-skel", ['ngRoute']);
+var skelApp = angular.module("angular-skel", ['ngRoute', 'ngSanitize']);
 
 // Configure routing
 skelApp.config(function ($routeProvider, $locationProvider) {
@@ -77,5 +77,5 @@ skelApp.controller('ErrorController', function ($scope) {
 skelApp.controller("DemoController", ['$scope', function ($scope) {
     console.log('DemoController');
     $scope.firstName = "Rana";
-    $scope.lastName = "Das";
+    $scope.lastName = "<span><b>Das</b></span>";
 }]);
