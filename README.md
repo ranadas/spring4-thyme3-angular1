@@ -21,6 +21,7 @@ A Thymeleaf 3 and Spring 4 mvc application. (Only Java Configs) :
     and then h=gulp task as "gulp vet"
 **
 
+https://scotch.io/tutorials/angular-routing-using-ui-router
 
 bower install
 npm install
