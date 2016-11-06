@@ -26,6 +26,8 @@ public class MainController {
     }
 
     //http://g00glen00b.be/validating-the-input-of-your-rest-api-with-spring/
+    //https://www.onehippo.org/labs/creating-your-first-angularjs-app-with-hippo-cms.html
+    //https://github.com/onehippo/demo-angular-hippo/blob/master/app/scripts/app.js
     @ResponseBody
     @RequestMapping(value = "/saveuser", method = RequestMethod.POST)
     public ResponseEntity saveUser(@Validated @RequestBody FormUser formUser, BindingResult bindingResult) {
